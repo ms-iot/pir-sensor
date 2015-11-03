@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using Windows.Devices.Gpio;
 
 namespace Microsoft.Maker.Devices.Gpio.PirSensor
@@ -41,10 +42,17 @@ namespace Microsoft.Maker.Devices.Gpio.PirSensor
         public PirSensor(int sensorPin, SensorType sensorType)
         {
             var gpioController = GpioController.GetDefault();
-            pirSensorEdge = sensorType == SensorType.ActiveLow ? GpioPinEdge.FallingEdge : GpioPinEdge.RisingEdge;
-            pirSensorPin = gpioController.OpenPin(sensorPin);
-            pirSensorPin.SetDriveMode(GpioPinDriveMode.Input);
-            pirSensorPin.ValueChanged += PirSensorPin_ValueChanged;
+            if (gpioController != null)
+            {
+                pirSensorEdge = sensorType == SensorType.ActiveLow ? GpioPinEdge.FallingEdge : GpioPinEdge.RisingEdge;
+                pirSensorPin = gpioController.OpenPin(sensorPin);
+                pirSensorPin.SetDriveMode(GpioPinDriveMode.Input);
+                pirSensorPin.ValueChanged += PirSensorPin_ValueChanged;
+            }
+            else
+            {
+                Debug.WriteLine("Error: GPIO controller not found.");
+            }             
         }
 
         /// <summary>
