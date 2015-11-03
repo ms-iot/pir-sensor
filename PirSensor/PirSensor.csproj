@@ -7,8 +7,8 @@
     <ProjectGuid>{45DAC222-16A5-4745-8C94-8C9DC0ABE033}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MotionSensor</RootNamespace>
-    <AssemblyName>MotionSensor</AssemblyName>
+    <RootNamespace>PirSensor</RootNamespace>
+    <AssemblyName>PirSensor</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10556.0</TargetPlatformVersion>
@@ -107,9 +107,9 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MotionSesnor.cs" />
+    <Compile Include="PirSensor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="Properties\MotionSensor.rd.xml" />
+    <Content Include="Properties\PirSensor.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <SDKReference Include="WindowsIoT, Version=10.0.10240.0">

@@ -1,9 +1,9 @@
 ﻿using System;
 using Windows.Devices.Gpio;
 
-namespace Microsoft.Maker.Devices.Gpio.MotionSensor
+namespace Microsoft.Maker.Devices.Gpio.PirSensor
 {
-    public class MotionSensor
+    public class PirSensor
     {
         /// <summary>
         /// Sensor type: Active high or active low.
@@ -17,12 +17,12 @@ namespace Microsoft.Maker.Devices.Gpio.MotionSensor
         /// <summary>
         /// GpioPin object for the sensor's signal pin
         /// </summary>
-        private GpioPin motionSensorPin;
+        private GpioPin pirSensorPin;
 
         /// <summary>
         /// The edge to compare the signal with for motion based on the sensor type.
         /// </summary>
-        private GpioPinEdge motionSensorEdge;
+        private GpioPinEdge pirSensorEdge;
 
         /// <summary>
         /// Occurs when motion is detected
@@ -38,13 +38,13 @@ namespace Microsoft.Maker.Devices.Gpio.MotionSensor
         /// <param name="sensorType">
         /// The motion sensor type: Active low or active high
         /// </param>
-        public MotionSensor(int sensorPin, SensorType sensorType)
+        public PirSensor(int sensorPin, SensorType sensorType)
         {
             var gpioController = GpioController.GetDefault();
-            motionSensorEdge = sensorType == SensorType.ActiveLow ? GpioPinEdge.FallingEdge : GpioPinEdge.RisingEdge;
-            motionSensorPin = gpioController.OpenPin(sensorPin);
-            motionSensorPin.SetDriveMode(GpioPinDriveMode.Input);
-            motionSensorPin.ValueChanged += MotionSensorPin_ValueChanged;
+            pirSensorEdge = sensorType == SensorType.ActiveLow ? GpioPinEdge.FallingEdge : GpioPinEdge.RisingEdge;
+            pirSensorPin = gpioController.OpenPin(sensorPin);
+            pirSensorPin.SetDriveMode(GpioPinDriveMode.Input);
+            pirSensorPin.ValueChanged += PirSensorPin_ValueChanged;
         }
 
         /// <summary>
@@ -52,15 +52,15 @@ namespace Microsoft.Maker.Devices.Gpio.MotionSensor
         /// </summary>
         public void Dispose()
         {
-            motionSensorPin.Dispose();
+            pirSensorPin.Dispose();
         }
 
         /// <summary>
         /// Occurs when motion sensor pin value has changed
         /// </summary>
-        private void MotionSensorPin_ValueChanged(GpioPin sender, GpioPinValueChangedEventArgs args)
+        private void PirSensorPin_ValueChanged(GpioPin sender, GpioPinValueChangedEventArgs args)
         {
-            if (motionDetected != null && args.Edge == motionSensorEdge)
+            if (motionDetected != null && args.Edge == pirSensorEdge)
             {
                 motionDetected(this, args);
             }
