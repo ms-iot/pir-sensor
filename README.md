@@ -16,7 +16,7 @@ You should now be able to use PirSensor objects in your project.
 -  `git submodule update`   
 
 ## Constructors
-- **MotionSensor(int, SensorType):** Creates a new instance of the motion sensor taking the GPIO pin and type (SensorType.ActiveLow or SensorType.ActiveHigh) as arguments. 
+- **PirSensor(int, SensorType):** Creates a new instance of the motion sensor taking the GPIO pin and type (SensorType.ActiveLow or SensorType.ActiveHigh) as arguments. 
 
 *Note:* See the *Supported Devices* section to see what sensor type to use.
 
