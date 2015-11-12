@@ -4,9 +4,9 @@ This is the code block for using a PIR motion sensor with Windows 10 IoT Core. C
 ## Usage 
 To use this block in your project, you need to perform the following steps:  
 
-1. Navigate to your git project folder using Command Prompt and run `git submodule add https://github.com/ms-iot/motion-sensor`   
+1. Navigate to your git project folder using Command Prompt and run `git submodule add https://github.com/ms-iot/pir-sensor`   
 2. Next, run `git submodule update`   
-3. Open your project solution in Visual Studio and right-click on the solution and select **Add -> Existing Project**. Select motion-sensor -> PirSensor -> PirSensor.csproj.   
+3. Open your project solution in Visual Studio and right-click on the solution and select **Add -> Existing Project**. Select pir-sensor -> PirSensor -> PirSensor.csproj.   
 4. Once PirSensor is added to the solution explorer, right-click on **References** in your project and select **Add Reference -> Projects -> Solution**. Check PirSensor and select **OK**.  
 You should now be able to use PirSensor objects in your project.   
 
