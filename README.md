@@ -32,4 +32,6 @@ You should now be able to use PirSensor objects in your project.
 | Adafruit      |[PIR (motion) sensor](https://www.adafruit.com/products/189)      | ActiveHigh |
 | Sparkfun      |[PIR Motion Sensor (JST)](https://www.sparkfun.com/products/13285)| ActiveLow  |
 
+===
 
+This project has adopted the [Microsoft Open Source Code of Conduct](http://microsoft.github.io/codeofconduct). For more information see the [Code of Conduct FAQ](http://microsoft.github.io/codeofconduct/faq.md) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments. 
