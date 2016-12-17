@@ -4,7 +4,7 @@ using Windows.Devices.Gpio;
 
 namespace Microsoft.Maker.Devices.Gpio.PirSensor
 {
-    public class PirSensor
+    public class PirSensor : IDisposable
     {
         /// <summary>
         /// Sensor type: Active high or active low.
@@ -52,7 +52,7 @@ namespace Microsoft.Maker.Devices.Gpio.PirSensor
             else
             {
                 Debug.WriteLine("Error: GPIO controller not found.");
-            }             
+            }
         }
 
         /// <summary>
